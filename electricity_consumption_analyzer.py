@@ -13,7 +13,6 @@ invalid_units = data["Units"].isna()
 for index in data[invalid_units].index:
     print("Row", index + 1," skipped: invalid Units" ,original_units[index])
 
-
 negative_units = data["Units"] < 0
 
 for index in data[negative_units].index:
@@ -27,45 +26,24 @@ print("Valid rows:", len(valid_data))
 print("Total :", total,"units")
 
 avg=np.mean(units)
-
-
 maximum = np.max(units)
-
-
 highest_month = valid_data[valid_data["Units"] == maximum]
-
-
 minimum = np.min(units)
-
-
 lowest_month = valid_data[valid_data["Units"] == minimum]
-
-
-
-
 std_dev = np.std(units)
-
 
 above_average = valid_data[valid_data["Units"] > avg]
 
-
-
 plt.bar(valid_data["Month"], valid_data["Units"])
-
 plt.title("Monthly Consumption")
 plt.xlabel("Month")
 plt.ylabel("Units")
-
 plt.show()
 
-
-
 plt.plot(valid_data["Month"], valid_data["Units"], marker="o")
-
 plt.title("Monthly Consumption Trend")
 plt.xlabel("Month")
 plt.ylabel("Units")
-
 plt.show()
 
 while True:
