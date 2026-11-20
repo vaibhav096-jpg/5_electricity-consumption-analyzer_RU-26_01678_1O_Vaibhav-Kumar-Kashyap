@@ -11,13 +11,13 @@ data["Units"]=pd.to_numeric(data["Units"], errors='coerce')
 invalid_units = data["Units"].isna()
 
 for index in data[invalid_units].index:
-    print(f"Row {index + 1} skipped: invalid Units '{original_units[index]}'.")
+    print("Row", index + 1," skipped: invalid Units" ,original_units[index])
 
 
 negative_units = data["Units"] < 0
 
 for index in data[negative_units].index:
-    print(f"Row {index + 1} skipped: Units cannot be negative.")
+    print("Row", index + 1," skipped: Units cannot be negative.")
 valid_data=data[data["Units"].notna() & (data["Units"]>=0)]
 print(valid_data)
 
